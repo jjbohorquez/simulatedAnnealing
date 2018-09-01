@@ -15,9 +15,12 @@
     "test-travis": "jest --coverage && codecov",
     "test-simple": "jest"
   },
+  "jest": {
+    "verbose": true
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mljs/simulated-annealing.git"
+    "url": "https://github.com/jjbohorquez/simulatedAnnealing.git"
   },
   "keywords": [
     "simulated",
@@ -36,10 +39,10 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mljs/simulated-annealing/issues"
+    "url": "https://github.com/jjbohorquez/simulatedAnnealing/issues"
   },
   "runkitExampleFilename": "./runkit.js",
-  "homepage": "https://github.com/mljs/simulated-annealing#readme",
+  "homepage": "https://github.com/jjbohorquez/simulatedAnnealing#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
@@ -48,7 +51,7 @@
     "eslint-config-cheminfo": "^1.15.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jest": "^21.9.0",
-    "jest": "^22.2.2",
+    "jest": "^23.3",
     "jest-matcher-deep-close-to": "^1.2.1",
     "mocha-better-spec-reporter": "^3.1.0",
     "rollup": "^0.55.5"
