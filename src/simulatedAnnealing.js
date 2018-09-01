@@ -3,7 +3,7 @@
 module.exports = simulatedAnnealing;
 
 function simulatedAnnealing(inputs){
-    let testInfo = {temperatureList : [],dfList :[], optimumList: [],probabilityList : [], errorList : [], currentList : [], dxList: [], candidateList: []};
+    let testInfo = {temperatureList : [],dfList :[], optimumList: [],probabilityList : [], errorList : [], currentList : [], dxList: [], candidateList: []};//probabilityList : [], acceptValues : []
     let current = inputs.guess, range = inputs.neighbour.upperBound.map((x,i) => x - inputs.neighbour.lowerBound[i]);
     let globalOptimum = inputs.goalFunction(current), optimum, optimumCandidate;
     for (let iteration = 0; iteration < inputs.maxIterations; iteration++){
@@ -14,14 +14,14 @@ function simulatedAnnealing(inputs){
         if (df < 0){ 
             current = candidate;
             optimum = candidateEvaluation;
-            globalOptimum = candidateEvaluation
             optimumCandidate = candidate;
+            globalOptimum = candidateEvaluation;
         }
         else if (acceptableProbability(df, T,inputs.quenchingFactor) > Math.random()){
             current = candidate;
             optimum = candidateEvaluation;
         }
-        let probability = (df < 0 ? NaN : acceptableProbability(df, T,inputs.quenchingFactor))//only for test *** the NaN represent that the probability is only generated when df > 0 *** 
+        let probability = (df < 0 ? 2 : acceptableProbability(df, T,inputs.quenchingFactor))//onlly for test ** the "2" values is not showed in the plot because the probability is only generate when df > 0 *** 
         testInfo.temperatureList[iteration] = T;
         testInfo.currentList[iteration] = current;
         testInfo.dxList[iteration] = information.dx;
@@ -36,11 +36,10 @@ function acceptableProbability(functionDelta, temperature, quenchingFactor){
     return probability
 }
 function candidateGenerator(neighbour,range, current, T, quienching){
-    
     let dx = [], infoToTest = { yList : [], dx:undefined , parameters : undefined };
-    let newCandidate = [];
+    let newCandidate = []
     for (let i = 0; i < current.length; i++) {
-        let y = Math.random() * (range) + neighbour.lowerBound[i];
+        let y = Math.random() * (range[i]) + neighbour.lowerBound[i];
         infoToTest.yList[i] = y;
         dx[i] = y  * Math.exp(-quienching/ T) 
         newCandidate[i] = current[i] + dx[i];
@@ -51,6 +50,6 @@ function candidateGenerator(neighbour,range, current, T, quienching){
     return [newCandidate, infoToTest];
 }
 function temperature(maxIteration, iteration){
-    let T = maxIteration / iteration * 0.1 + 1 ;
+    let T = maxIteration / (iteration * 0.1 + 1 );
     return T;
-};
+};  
