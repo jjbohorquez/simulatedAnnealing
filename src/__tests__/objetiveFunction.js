@@ -12,9 +12,10 @@ let simulatedAnnealingInputs = {
     // lowerBound : [-5, -5] ,
     upperBound : [5, 5],
     },
-    maxIterations : 1000,
+    maxIterations : 10000,
     quenchingFactor :2
     
 }
 let simulatedAnnealingOutputs = simulatedAnnealing(simulatedAnnealingInputs);
 
+let idealValues = [[2.9029, 2.9028], -156.66];
