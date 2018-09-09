@@ -18,7 +18,7 @@ export default function simulatedAnnealing(inputs) {
       current = candidate;
       optimum = candidateEvaluation;
     }
-    let probability = (df < 0 ? 2 : acceptableProbability(df, T, inputs.quenchingFactor));// onlly for test ** the "2" values is not showed in the plot because the probability is only generate when df > 0 ***
+    let probability = (df < 0 ? 2 : acceptableProbability(df, T, inputs.quenchingFactor));// only for test ** the "2" values is not showed in the plot because the probability is only generate when df > 0 ***
     testInfo.temperatureList[iteration] = T;
     testInfo.currentList[iteration] = current;
     testInfo.dxList[iteration] = information.dx;

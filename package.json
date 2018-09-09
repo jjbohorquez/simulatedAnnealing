@@ -45,7 +45,12 @@
   "homepage": "https://github.com/jjbohorquez/simulatedAnnealing#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-remove-comments": "^2.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-babili": "^0.1.4",
+    "cheminfo-tools": "^1.20.3",
     "codecov": "^2.3.1",
     "eslint": "^4.17.0",
     "eslint-config-cheminfo": "^1.15.1",
